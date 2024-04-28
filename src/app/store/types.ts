@@ -1,4 +1,4 @@
-import { IGetTrainsResponse } from "../entities/train/types";
+import { IGetTrainsResponse } from "../../entities/train/types";
 
 
 export interface IInitialState {

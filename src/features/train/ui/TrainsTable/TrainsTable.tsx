@@ -1,7 +1,7 @@
 import cn from "classnames";
 import styles from './TrainsTable.module.css';
 import TrainTableItem from "../../../../shared/TrainTableItem/TrainTableItem";
-import { useAppSelector } from "../../../../store/hooks";
+import { useAppSelector } from "../../../../app/store/hooks";
 import { ITrainsTableProps } from "./types";
 
 const TrainsTable = ({className, ...rest} : ITrainsTableProps): JSX.Element => {

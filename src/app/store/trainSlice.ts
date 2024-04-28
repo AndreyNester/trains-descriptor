@@ -1,5 +1,5 @@
 import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
-import { trainsApi } from "../features/train/api/getTrains";
+import { trainsApi } from "../../features/train/api/getTrains";
 import { IInitialState } from "./types";
 
 export const getTrains = createAsyncThunk('trains/getTrains', ()=>trainsApi.getTrains())
