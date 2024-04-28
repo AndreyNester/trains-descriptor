@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IGetTrainsResponse } from "../../entities/train/types";
+import { IGetTrainsResponse } from "../../../entities/train/types";
 import BASE_URL from "./constants";
 
 class TrainsApi {

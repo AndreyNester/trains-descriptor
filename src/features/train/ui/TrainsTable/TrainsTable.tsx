@@ -1,8 +1,8 @@
 import cn from "classnames";
 import { DetailedHTMLProps, TableHTMLAttributes } from "react";
 import styles from './TrainsTable.module.css';
-import TrainTableItem from "../TrainTableItem/TrainTableItem";
-import { useAppSelector } from "../../store/hooks";
+import TrainTableItem from "../../../../shared/TrainTableItem/TrainTableItem";
+import { useAppSelector } from "../../../../store/hooks";
 
 interface ITrainsTableProps extends DetailedHTMLProps<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> {}
 

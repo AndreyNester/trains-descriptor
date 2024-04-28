@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import TrainsTable from './components/TrainsTable/TrainsTable'
+import TrainsTable from './features/train/ui/TrainsTable/TrainsTable'
 import { useAppDispatch } from './store/hooks';
 import { getTrains } from './store/trainSlice';
 
