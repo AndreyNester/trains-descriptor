@@ -1,0 +1,8 @@
+:root {
+  --background-color: rgb(226, 228, 236);
+  --background-table : rgb(255, 255, 255);
+
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}

@@ -1,0 +1,33 @@
+@import url(../../index.css);
+
+.table {
+  background-color: var(--background-table);
+  padding: 20px;
+  width: 40%;
+  border-radius: 10px;
+  border-spacing: 0;
+}
+
+.thead{
+  position: relative;
+  background: var(--background-color);
+  
+}
+
+.thead>tr::after{
+  content:  '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: var(--background-table);
+  bottom: 0;
+  left: 0;
+}
+
+.thead th {
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  text-align: left;
+}
