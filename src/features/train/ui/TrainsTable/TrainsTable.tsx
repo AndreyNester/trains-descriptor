@@ -1,10 +1,8 @@
 import cn from "classnames";
-import { DetailedHTMLProps, TableHTMLAttributes } from "react";
 import styles from './TrainsTable.module.css';
 import TrainTableItem from "../../../../shared/TrainTableItem/TrainTableItem";
 import { useAppSelector } from "../../../../store/hooks";
-
-interface ITrainsTableProps extends DetailedHTMLProps<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> {}
+import { ITrainsTableProps } from "./types";
 
 const TrainsTable = ({className, ...rest} : ITrainsTableProps): JSX.Element => {
 
@@ -18,7 +16,7 @@ const TrainsTable = ({className, ...rest} : ITrainsTableProps): JSX.Element => {
   return (
     isLoading ? <div>loading...</div> : 
     <table className={classes} {...rest}>
-      <caption>poezda</caption>
+      <caption className={styles.caption}>Поезда</caption>
 
       <thead className={styles.thead}>
         <tr>
