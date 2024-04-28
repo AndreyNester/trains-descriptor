@@ -1,0 +1,15 @@
+.trainTablePage{
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  align-items: start;
+}
+
+.trainsTable{
+
+}
+
+.trainCharactericticTable{
+  flex-grow: 1;
+  background-color: blueviolet;
+}

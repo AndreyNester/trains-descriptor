@@ -1,12 +1,15 @@
+export interface IData extends ITrain {
+  id : number
+}
 export type IGetTrainsResponse = ITrain[]
 
 export interface ITrain {
   name: string
   description: string
-  characteristics: TrainCharacteristic[]
+  characteristics: ITrainCharacteristic[]
 }
 
-export interface TrainCharacteristic {
+export interface ITrainCharacteristic {
   speed: number
   force: number
   engineAmperage: number

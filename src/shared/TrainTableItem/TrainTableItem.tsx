@@ -1,11 +1,9 @@
 import cn from "classnames";
-import { DetailedHTMLProps } from "react";
-import styles from './TrainTableItem.module.css';
 
-interface ITrainTableItemProps extends DetailedHTMLProps<React.HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement> {
-  traintName : string,
-  trainDescription : string
-}
+import styles from './TrainTableItem.module.css';
+import ITrainTableItemProps from "./types";
+
+
 
 const TrainTableItem = ({className, traintName, trainDescription,...rest} : ITrainTableItemProps) : JSX.Element=> {
   const classes = cn({

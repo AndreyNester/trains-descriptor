@@ -1,7 +1,8 @@
-import { IGetTrainsResponse } from "../../entities/train/types";
+import { IData } from "../../entities/train/types";
 
 
 export interface IInitialState {
-  trains : IGetTrainsResponse,
-  isLoading : boolean
+  trains : IData[],
+  isLoading : boolean,
+  openedDescriptionId: number | null
 }
