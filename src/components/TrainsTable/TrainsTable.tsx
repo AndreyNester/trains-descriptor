@@ -2,32 +2,35 @@ import cn from "classnames";
 import { DetailedHTMLProps, TableHTMLAttributes } from "react";
 import styles from './TrainsTable.module.css';
 import TrainTableItem from "../TrainTableItem/TrainTableItem";
+import { useAppSelector } from "../../store/hooks";
 
 interface ITrainsTableProps extends DetailedHTMLProps<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> {}
 
 const TrainsTable = ({className, ...rest} : ITrainsTableProps): JSX.Element => {
+
+  const {isLoading, trains} = useAppSelector((state)=>state.trains)
+  
   const classes = cn({
     className,
     [styles.table]: true,
   });
+
   return (
-  <table className={classes} {...rest}>
-    <caption>poezda</caption>
+    isLoading ? <div>loading...</div> : 
+    <table className={classes} {...rest}>
+      <caption>poezda</caption>
 
-    <thead className={styles.thead}>
-      <tr>
-        <th>Название</th>
-        <th>Опсание</th>
-      </tr>
-    </thead>
+      <thead className={styles.thead}>
+        <tr>
+          <th>Название</th>
+          <th>Опсание</th>
+        </tr>
+      </thead>
 
-    <tbody>
-      <TrainTableItem traintName="trainname1" trainDescription="traindescr1" />
-      <TrainTableItem traintName="trainname2" trainDescription="traindescr2" />
-      <TrainTableItem traintName="trainname3" trainDescription="traindescr3" />
-      <TrainTableItem traintName="trainname4" trainDescription="traindescr4" />
-    </tbody>
-  </table>
+      <tbody>
+        {trains.map((item, index)=><TrainTableItem key={index} traintName={item.name} trainDescription={item.description} />)}
+      </tbody>
+    </table>
 )
 }
 export default TrainsTable;

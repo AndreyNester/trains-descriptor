@@ -5,7 +5,8 @@ import BASE_URL from "./constants";
 class TrainsApi {
 
   async getTrains () : Promise<IGetTrainsResponse> {
-    const res : IGetTrainsResponse = await axios<IGetTrainsResponse, IGetTrainsResponse>(BASE_URL);
+    const res : IGetTrainsResponse = (await axios<IGetTrainsResponse>(BASE_URL)).data;
+    
     return res;
   }
 

@@ -1,9 +1,14 @@
+import { useEffect } from 'react';
 import TrainsTable from './components/TrainsTable/TrainsTable'
-import { trainsApi } from './features/train/getTrains'
+import { useAppDispatch } from './store/hooks';
+import { getTrains } from './store/trainSlice';
 
 const App = () : JSX.Element=> {
-
-  trainsApi.getTrains().then((res)=>console.log(res))
+  const dispatch = useAppDispatch();
+  
+  useEffect(()=>{
+    dispatch(getTrains())
+  }, [])
 
   return (<TrainsTable />)
 }
