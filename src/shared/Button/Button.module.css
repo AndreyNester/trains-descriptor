@@ -1,0 +1,14 @@
+@import url(../../index.css);
+
+.button {
+  height: 50px;
+  width: 200px;
+  border-radius: 5px;
+  border: 2px solid rgb(151, 151, 151);
+  background-color: var(--background-table);
+  transition-duration: 0.1s;
+}
+
+.button:hover {
+  background-color: grey;
+}

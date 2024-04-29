@@ -2,6 +2,7 @@ import cn from 'classnames';
 import styles from './TrainCharactericticTable.module.css';
 import { ITrainCharactericticTable } from './types';
 import { Field, Form, Formik } from 'formik';
+import Button from '../../../../shared/Button/Button';
 
 
 const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharactericticTable) : JSX.Element=> {
@@ -36,7 +37,7 @@ const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharacteri
       }}
       >
       {({ values }) => (
-      <Form>
+      <Form className={styles.form}>
         <table className={classes} {...rest}>
       
           <caption className={styles.caption}>Характеристики <br />{train.name}</caption>
@@ -53,13 +54,13 @@ const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharacteri
             {values.trainCharacterictics.map((item, index)=>(
                 <tr className={styles.trow} key={index}>
                   <td>
-                    <Field name={`trainCharacterictics[${index}].engineAmperage`} validate={validateEngineAmperage}/>
+                    <Field name={`trainCharacterictics[${index}].engineAmperage`} validate={validateEngineAmperage} className={styles.field}/>
                   </td>
                   <td>
-                    <Field name={`trainCharacterictics[${index}].force`} validate={validateEngineAmperage}/>
+                    <Field name={`trainCharacterictics[${index}].force`} validate={validateEngineAmperage} className={styles.field}/>
                   </td>
                   <td>
-                    <Field name={`trainCharacterictics[${index}].speed`} validate={validateEngineAmperage}/> 
+                    <Field name={`trainCharacterictics[${index}].speed`} validate={validateEngineAmperage} className={styles.field}/> 
                   </td>
                 </tr>
                 ))}
@@ -67,7 +68,7 @@ const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharacteri
 
         </table>
     
-        <button type="submit">Submit</button>
+        <Button type='submit' className={styles.submitBtn}>Отправить данные</Button>
       </Form>
       )}
     </Formik>
