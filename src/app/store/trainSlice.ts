@@ -15,9 +15,7 @@ const trainSlice = createSlice({
   name: 'trains',
   initialState,
   reducers : {
-    openDescription (state, {payload} : {payload : number}) {
-      console.log(payload);
-      
+    openDescription (state, {payload} : {payload : number}) {      
       state.openedDescriptionId = payload
     }
   },

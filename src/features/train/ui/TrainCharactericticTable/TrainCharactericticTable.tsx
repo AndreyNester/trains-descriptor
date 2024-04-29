@@ -9,7 +9,6 @@ import validateForce from '../config/validationFunctions/validateForce';
 
 
 const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharactericticTable) : JSX.Element=> {
-  console.log(train);
 
   const classes = cn(className, {
     [styles.table] : true
@@ -24,8 +23,8 @@ const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharacteri
 
       enableReinitialize={true}
       onSubmit={values => {
-            
-        console.log(values);
+        const res = [...values.trainCharacterictics].sort((a,b)=>a.speed - b.speed).map((item)=>item.speed);
+        console.log(res);
       }}
       >
       {({ values , errors}) => (
