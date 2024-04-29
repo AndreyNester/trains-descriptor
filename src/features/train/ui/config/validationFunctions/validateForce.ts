@@ -1,9 +1,8 @@
 const validateForce = (value: string): string | undefined => {
   let error;
-  if (!value) {
-    error = 'Required';
-    console.log(value, 'err');
-    
+  const regex = /^[0-9]*[.,]?[0-9]+$/;
+  if (!regex.test(value)) {
+    error = 'Invalid number';
   }
   return error;
 }
