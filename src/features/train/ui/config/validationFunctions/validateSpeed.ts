@@ -1,4 +1,3 @@
-
 const validateSpeed = (value: string): string | undefined => {
   let error;
   const regex = /^\d+$/;

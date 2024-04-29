@@ -97,8 +97,10 @@
   transform: translate(-50%, 0);
 }
 
-
-.err input{
+.errMark{
+  display: none;
+}
+.errMark ~ input{
   border: 2px solid red;
   color: red;
 }

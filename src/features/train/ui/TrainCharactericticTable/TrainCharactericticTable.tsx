@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import styles from './TrainCharactericticTable.module.css';
 import { ITrainCharactericticTable } from './types';
-import { Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { Button } from '../../../../shared/Button';
 import {validateEngineAmperage, validateSpeed, validateForce} from '../config/';
 
@@ -39,17 +39,22 @@ const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharacteri
           </thead>
 
           <tbody>
-            {values.trainCharacterictics.map((item, index)=>(
+            {values.trainCharacterictics.map((_item, index)=>(
                 <tr className={styles.trow} key={index}>
-                  <td className={Array.isArray(errors.trainCharacterictics) ? typeof errors.trainCharacterictics[index]==='object'? errors.trainCharacterictics[index].engineAmperage ? styles.err : '' : errors.trainCharacterictics[index] : '' }>
+                  
+                  <td>
+                    <ErrorMessage name={`trainCharacterictics[${index}].engineAmperage`} component="div" className={styles.errMark}/>
                     <Field type='number' name={`trainCharacterictics[${index}].engineAmperage`} validate={validateEngineAmperage} className={styles.field}/>
                   </td>
-                  <td className={Array.isArray(errors.trainCharacterictics) ? typeof errors.trainCharacterictics[index]==='object'? errors.trainCharacterictics[index].force ? styles.err : '' : errors.trainCharacterictics[index] : '' }>
+                  <td >
+                    <ErrorMessage name={`trainCharacterictics[${index}].force`} component="div" className={styles.errMark}/>
                     <Field type='number' name={`trainCharacterictics[${index}].force`} validate={validateForce} className={styles.field}/>
                   </td>
-                  <td className={Array.isArray(errors.trainCharacterictics) ? typeof errors.trainCharacterictics[index]==='object'? errors.trainCharacterictics[index].speed ? styles.err : '' : errors.trainCharacterictics[index] : '' }>
+                  <td>
+                    <ErrorMessage name={`trainCharacterictics[${index}].speed`} component="div" className={styles.errMark}/>
                     <Field type='number' name={`trainCharacterictics[${index}].speed`} validate={validateSpeed} className={styles.field}/> 
                   </td>
+
                 </tr>
               ))}
           </tbody>
