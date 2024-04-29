@@ -12,3 +12,6 @@
 .button:hover {
   background-color: grey;
 }
+.button:disabled {
+  background-color: var(--background-table);
+}

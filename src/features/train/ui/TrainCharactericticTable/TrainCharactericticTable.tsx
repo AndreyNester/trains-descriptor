@@ -3,6 +3,9 @@ import styles from './TrainCharactericticTable.module.css';
 import { ITrainCharactericticTable } from './types';
 import { Field, Form, Formik } from 'formik';
 import Button from '../../../../shared/Button/Button';
+import validateEngineAmperage from '../config/validationFunctions/validateEngineAmperage';
+import validateSpeed from '../config/validationFunctions/validateSpeed';
+import validateForce from '../config/validationFunctions/validateForce';
 
 
 const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharactericticTable) : JSX.Element=> {
@@ -11,18 +14,6 @@ const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharacteri
   const classes = cn(className, {
     [styles.table] : true
   })
-
-  //______________
-  function validateEngineAmperage(value: string): string | undefined {
-    let error;
-    if (!value) {
-      error = 'Required';
-      console.log(value, 'err');
-      
-    }
-    return error;
-  }
-  //________________
   
   return (
       <Formik
@@ -30,13 +21,14 @@ const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharacteri
       initialValues={{
         trainCharacterictics : train.characteristics
       }}
+
       enableReinitialize={true}
       onSubmit={values => {
             
         console.log(values);
       }}
       >
-      {({ values }) => (
+      {({ values , errors}) => (
       <Form className={styles.form}>
         <table className={classes} {...rest}>
       
@@ -53,22 +45,22 @@ const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharacteri
           <tbody>
             {values.trainCharacterictics.map((item, index)=>(
                 <tr className={styles.trow} key={index}>
-                  <td>
-                    <Field name={`trainCharacterictics[${index}].engineAmperage`} validate={validateEngineAmperage} className={styles.field}/>
+                  <td className={Array.isArray(errors.trainCharacterictics) ? typeof errors.trainCharacterictics[index]==='object'? errors.trainCharacterictics[index].engineAmperage ? styles.err : '' : errors.trainCharacterictics[index] : '' }>
+                    <Field type='number' name={`trainCharacterictics[${index}].engineAmperage`} validate={validateEngineAmperage} className={styles.field}/>
                   </td>
-                  <td>
-                    <Field name={`trainCharacterictics[${index}].force`} validate={validateEngineAmperage} className={styles.field}/>
+                  <td className={Array.isArray(errors.trainCharacterictics) ? typeof errors.trainCharacterictics[index]==='object'? errors.trainCharacterictics[index].force ? styles.err : '' : errors.trainCharacterictics[index] : '' }>
+                    <Field type='number' name={`trainCharacterictics[${index}].force`} validate={validateForce} className={styles.field}/>
                   </td>
-                  <td>
-                    <Field name={`trainCharacterictics[${index}].speed`} validate={validateEngineAmperage} className={styles.field}/> 
+                  <td className={Array.isArray(errors.trainCharacterictics) ? typeof errors.trainCharacterictics[index]==='object'? errors.trainCharacterictics[index].speed ? styles.err : '' : errors.trainCharacterictics[index] : '' }>
+                    <Field type='number' name={`trainCharacterictics[${index}].speed`} validate={validateSpeed} className={styles.field}/> 
                   </td>
                 </tr>
-                ))}
+              ))}
           </tbody>
 
         </table>
     
-        <Button type='submit' className={styles.submitBtn}>Отправить данные</Button>
+        <Button disabled={Array.isArray(errors.trainCharacterictics) && errors.trainCharacterictics.length > 0  } type='submit' className={styles.submitBtn}>Отправить данные</Button>
       </Form>
       )}
     </Formik>
