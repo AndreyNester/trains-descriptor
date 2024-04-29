@@ -1,8 +1,8 @@
 import styles from './TableWrapper.module.css';
-import { ITableWrapper } from './types';
+import { ITableWrapperProps } from './types';
 import cn from 'classnames';
 
-const TableWrapper = ({children, className, ...rest} : ITableWrapper): JSX.Element => {
+const TableWrapper = ({children, className, ...rest} : ITableWrapperProps): JSX.Element => {
 
   const classes = cn(className, {
     [styles.wrapper] : true,

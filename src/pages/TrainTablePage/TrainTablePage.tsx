@@ -1,9 +1,8 @@
 import styles from './TrainTablePage.module.css';
 import cn from 'classnames';
 import { ITrainTablePageProps } from './types';
-import TableWrapper from '../../shared/TableWrapper/TableWrapper';
-import TrainsTable from '../../features/train/ui/TrainsTable/TrainsTable';
-import TrainCharactericticTable from '../../features/train/ui/TrainCharactericticTable/TrainCharactericticTable';
+import { TableWrapper } from '../../shared/TableWrapper';
+import { TrainsTable , TrainCharactericticTable} from '../../features/train/';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
 import { useEffect } from 'react';
 import { getTrains } from '../../app/store/trainSlice';

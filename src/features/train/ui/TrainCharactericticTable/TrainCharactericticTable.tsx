@@ -2,11 +2,8 @@ import cn from 'classnames';
 import styles from './TrainCharactericticTable.module.css';
 import { ITrainCharactericticTable } from './types';
 import { Field, Form, Formik } from 'formik';
-import Button from '../../../../shared/Button/Button';
-import validateEngineAmperage from '../config/validationFunctions/validateEngineAmperage';
-import validateSpeed from '../config/validationFunctions/validateSpeed';
-import validateForce from '../config/validationFunctions/validateForce';
-
+import { Button } from '../../../../shared/Button';
+import {validateEngineAmperage, validateSpeed, validateForce} from '../config/';
 
 const TrainCharactericticTable = ({className, train,  ...rest}: ITrainCharactericticTable) : JSX.Element=> {
 

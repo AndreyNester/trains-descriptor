@@ -1,6 +1,6 @@
 const validateEngineAmperage = (value: string): string | undefined => {
   let error;
-  const regex = /^\d+$/;
+  const regex = /^[1-9]\d*$/;
   if (!regex.test(value)) {
     error = 'Invalid number';
   }
