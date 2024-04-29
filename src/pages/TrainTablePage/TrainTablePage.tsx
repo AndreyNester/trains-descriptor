@@ -29,7 +29,7 @@ const TrainTablePage = ({className, ...rest} : ITrainTablePageProps): JSX.Elemen
     </TableWrapper>
       {openedDescriptionId !== null ? 
     <TableWrapper className={styles.trainCharactericticTable}>
-      <TrainCharactericticTable isLoading={isLoading} train={trains[openedDescriptionId]}/>
+      <TrainCharactericticTable train={trains[openedDescriptionId]}/>
     </TableWrapper> : null}
   </section>
 )
