@@ -1,20 +1,19 @@
 import cn from 'classnames';
 import styles from './TrainCharactericticTable.module.css';
 import { ITrainCharactericticTable } from './types';
-import TrainCharactericticTableItem from '../../../../shared/TrainCharactericticTableItem/TrainCharactericticTableItem';
 
-const TrainCharactericticTable = ({className, isLoading, trainCharacteristic, ...rest}: ITrainCharactericticTable) : JSX.Element=> {
+const TrainCharactericticTable = ({className, isLoading, train, ...rest}: ITrainCharactericticTable) : JSX.Element=> {
+
   
-  const classes = cn({
-    [styles.table] : true,
-    className
+  const classes = cn(className, {
+    [styles.table] : true
   })
   
   return (
     isLoading ? <div>loading...</div> :
     <table className={classes} {...rest}>
       
-      <caption className={styles.caption}>Поезда</caption>
+      <caption className={styles.caption}>Характеристики <br />{train.name}</caption>
 
       <thead className={styles.thead}>
         <tr>
@@ -25,7 +24,13 @@ const TrainCharactericticTable = ({className, isLoading, trainCharacteristic, ..
       </thead>
 
       <tbody>
-        {trainCharacteristic.map((item, index)=><TrainCharactericticTableItem data={item} key={index}/>)}
+        {train.characteristics.map((item, index)=>(
+              <tr className={styles.trow} key={index}>
+                <td>{item.engineAmperage}</td>
+                <td>{item.force}</td>
+                <td>{item.speed}</td>
+            </tr>
+        ))}
       </tbody>
 
     </table>

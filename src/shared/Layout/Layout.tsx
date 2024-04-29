@@ -4,9 +4,8 @@ import styles from './Layout.module.css';
 import ILayoutProps from './types';
 
 const Layout : React.FC<ILayoutProps> = ({children, className, ...rest}: ILayoutProps ) : JSX.Element => {
-  const classes = cn({
-    [styles.container] : true,
-    className,
+  const classes = cn(className, {
+    [styles.container] : true
   });
 
   return (<div className={classes} {...rest}>{children}</div>)

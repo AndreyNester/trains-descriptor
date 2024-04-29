@@ -1,17 +1,22 @@
 import cn from "classnames";
 import styles from './TrainsTable.module.css';
-import TrainTableItem from "../../../../shared/TrainTableItem/TrainTableItem";
-import { useAppDispatch } from "../../../../app/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../../../app/store/hooks";
 import { ITrainsTableProps } from "./types";
 import { openDescription } from "../../../../app/store/trainSlice";
 
 const TrainsTable = ({className, isLoading, trains=[] , ...rest} : ITrainsTableProps): JSX.Element => {
 
   const dispatch = useAppDispatch();
+  const activeId = useAppSelector((state)=>state.trains.openedDescriptionId)
   
   const classes = cn(className, {
     [styles.table]: true,
   });
+
+  const getClassName = (id: number) : string => cn({
+    [styles.trow]: true,
+    [styles.active] : trains[id].id === activeId
+  })
 
   const onOpenDescription = (id : number) : void => {
     dispatch(openDescription(id))
@@ -30,7 +35,13 @@ const TrainsTable = ({className, isLoading, trains=[] , ...rest} : ITrainsTableP
       </thead>
 
       <tbody>
-        {trains.map((item)=><TrainTableItem key={item.id} traintName={item.name} trainDescription={item.description} onClick={()=>onOpenDescription(item.id)}/>)}
+        {trains.map((item)=> 
+          (
+            <tr className={getClassName(item.id)} key={item.id} onClick={()=>onOpenDescription(item.id)}>
+              <td>{item.name}</td>
+              <td>{item.description}</td>
+            </tr>
+          ))}
       </tbody>
     </table>
 )

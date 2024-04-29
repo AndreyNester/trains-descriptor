@@ -1,12 +1,12 @@
 .trainTablePage{
   width: 100%;
   display: flex;
-  gap: 50px;
+  gap: 40px;
   align-items: start;
 }
 
 .trainsTable{
-
+  width: 300px;
 }
 
 .trainCharactericticTable{
